@@ -9,8 +9,7 @@ namespace SummerSchool
     class Program
     {
         static string[] students = new string[15];
-
-
+        
         static int NextAvailibleSpace()
         {
             for (int i = 0; i < students.Length; i++)
@@ -24,18 +23,45 @@ namespace SummerSchool
             return -1;
         }
 
-        static void Main(string[] args)
-
-
-
+        static int TotalEnrolled()
         {
+            int numberOfStudents = 0;
 
+            for (int i = 0; i < students.Length; i++)
+            {
+                if (students[i] != null)
+                {
+                     numberOfStudents++;
+                }
+
+            }
+            return numberOfStudents;
+
+
+        }
+
+
+        static void Main(string[] args)
+        {
             while (true)
             {
                 Console.WriteLine("Main Menu");
                 Console.WriteLine("Please select an option");
-                Console.WriteLine("1. Enroll a student");
-                Console.WriteLine("2. Unenroll a student");
+                //number of enrolled
+                if (TotalEnrolled() < 15)
+                {
+
+                    Console.WriteLine("1. Enroll a student");
+
+                }
+
+                if (TotalEnrolled() >0)
+                {
+
+                    Console.WriteLine("2. Unenroll a student");
+
+                }
+                
                 Console.WriteLine("3. Print list of enrolled students");
                 Console.WriteLine("4. Exit");
 
@@ -46,11 +72,9 @@ namespace SummerSchool
 
                 if (response == 1)
                 {
-                    {
-
+                   
                         EnrollStudent();
 
-                    }
                 }
 
 
@@ -87,25 +111,31 @@ namespace SummerSchool
                 }
             }
         }
+
+
         static void EnrollStudent()
         {
 
+            if (TotalEnrolled() < 15)
+            {
+                Console.WriteLine("Enroll Student");
+                Console.Write("Please enter students name: ");
+                string name = Console.ReadLine();
 
-            Console.WriteLine("Enroll Student");
-            Console.Write("Please enter students name: ");
-            string name = Console.ReadLine();
+                //put student in next available spot in name
+                int spot = NextAvailibleSpace();
+                students[spot] = name;
 
-            //put student in next available spot in name
-            int spot = NextAvailibleSpace();
-            students[spot] = name;
+                Console.WriteLine(name + " is now enrolled");
+                Console.WriteLine(name + " needs to pay ___");
+                Console.ReadKey();
 
-            Console.WriteLine(name + " is now enrolled");
-            Console.WriteLine(name + " needs to pay ___");
-            Console.ReadKey();
+            }
             Console.Clear();
 
 
         }
+
         static void UnenrollStudent()
         {
 
@@ -115,7 +145,7 @@ namespace SummerSchool
             for (int i = 0; i < students.Length; i++)
             {
 
-                Console.WriteLine("{0}  {1}" , i + 1,  students[i]);
+                Console.WriteLine("{0}  {1} ", i + 1, students[i]);
 
             }
 
@@ -125,9 +155,9 @@ namespace SummerSchool
             Console.WriteLine(students[number - 1] + " is now unenrolled");
             students[number - 1] = null;
 
-            
 
-            
+
+
 
             Console.ReadKey();
             Console.Clear();
@@ -141,12 +171,19 @@ namespace SummerSchool
 
             for (int i = 0; i < students.Length; i++)
             {
-               
+                
                 Console.WriteLine(students[i]);
+                
+                
 
             }
 
+            Console.ReadKey();
+            Console.Clear();
+
         }
+        
+
         static void Exit()
         {
 
