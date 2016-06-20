@@ -51,39 +51,14 @@ namespace SummerSchool
                 if (response == 1)
                 //while (response == 1)
                 {
-                    //EnrollStudent();
-
-
+                   
                     {
+                        EnrollStudent();
 
-
-                        Console.WriteLine("Enroll Student");
-                        Console.Write("Please enter students name: ");
-                        string name = Console.ReadLine();
-                        int spot = NextAvailibleSpace();
-                        students[spot] = name;
-                        //put student in next available spot in name
-
-                        Console.WriteLine(name + " is now enrolled");
-                        Console.WriteLine(name + " needs to pay ___");
-                        Console.ReadKey();
-                        Console.Clear();
+                       
 
                     }
-
-                    /*  Console.WriteLine("Enroll Student");
-                      Console.Write("Please enter students name: ");
-
-                      string name = Console.ReadLine();
-                      string[] listOfNames = new string[15];
-                      Console.WriteLine(listOfNames + " is now enrolled");
-                      Console.WriteLine(listOfNames + " needs to pay _____");
-                      Console.ReadKey();
-                      Console.Clear();
-                      */
-
-
-
+                    
                 }
 
 
@@ -91,9 +66,18 @@ namespace SummerSchool
                 {
 
                     Console.WriteLine("Unenroll Student");
-                    Console.Write("Please enter students name: ");
-                    string name = Console.ReadLine();
-                    Console.WriteLine(name + " is now unenrolled");
+
+                    for (int i = 0; i < students.Length; i++)
+                    {
+                        Console.WriteLine(students[i]);
+
+                    }
+
+                    Console.Write("Please enter students number: ");
+                    string number = Console.ReadLine();
+
+                   
+                    Console.WriteLine(number + " is now unenrolled");
                     Console.ReadKey();
                     Console.Clear();
 
@@ -105,6 +89,7 @@ namespace SummerSchool
                     for (int i = 0; i < students.Length; i++)
                     {
                         Console.WriteLine(students[i]);
+                        
                     }
 
                 }
@@ -122,10 +107,35 @@ namespace SummerSchool
                     Console.WriteLine("Please enter a number 1-4");
                 }
             }
+        }
+        static void EnrollStudent()
+        {
 
 
+            Console.WriteLine("Enroll Student");
+            Console.Write("Please enter students name: ");
+            string name = Console.ReadLine();
+
+            //put student in next available spot in name
+            int spot = NextAvailibleSpace();
+            students[spot] = name;
+
+            Console.WriteLine(name + " is now enrolled");
+            Console.WriteLine(name + " needs to pay ___");
+            Console.ReadKey();
+            Console.Clear();
 
 
         }
+        static void UnenrollStudent()
+        {
+
+        }
+
+        static void PrintStudents()
+        {
+
+        }
+
     }
 }
