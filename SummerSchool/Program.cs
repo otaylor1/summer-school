@@ -12,13 +12,6 @@ namespace SummerSchool
 
         static int[] cost = new int[15];
 
-
-
-
-
-
-
-
         static int NextAvailibleSpace()
         {
             for (int i = 0; i < students.Length; i++)
@@ -136,48 +129,7 @@ namespace SummerSchool
 
                 string tempName = name.ToLower();
 
-                if (name.Contains("riddle"))
-                {
-
-                    Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
-
-                }
-
-
-                if (name.Contains("tom"))
-                {
-
-                    Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
-
-                }
-
-                if (name.Contains("voldemort"))
-                {
-
-                    Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
-
-                }
-
-                if (name.Contains("malfoy"))
-                {
-                    Console.WriteLine("Do Not Enroll");
-                    Console.ReadKey();
-                    Console.Clear();
-                    return;
-                    
-                }
-                
-
-                if (name.Contains("potter"))
-                {
-                    Console.WriteLine(fee / 2);
-                    fee = fee / 2;
-                   
-                }
-
-               
-
-                if (name.Contains("longbottom"))
+                if (tempName == "longbottom")
                 {
 
                     if (TotalEnrolled() < 10)
@@ -190,14 +142,58 @@ namespace SummerSchool
                         Console.WriteLine(fee);
 
                     }
-                
-                
+
+
                 }
+
+
+                if (tempName =="riddle")
+                {
+
+                    Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
+
+                }
+
+
+                if (tempName =="tom")
+                {
+
+                    Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
+
+                }
+
+                if (tempName == "voldemort")
+                {
+
+                    Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
+
+                }
+
+                if (tempName == "malfoy")
+                {
+                    Console.WriteLine("Do Not Enroll");
+                    Console.ReadKey();
+                    Console.Clear();
+                    return;
+                    
+                }
+                
+
+                if (tempName =="potter")
+                {
+                    Console.WriteLine(fee / 2);
+                    fee = fee / 2;
+                   
+                }
+
+               
+
+              
 
                 cost[spot] = fee;
 
                 Console.WriteLine(name + " is now enrolled");
-                Console.WriteLine(name + " needs to pay {0}", fee);
+                Console.WriteLine(name + " needs to pay £ {0}", fee);
                 Console.ReadKey();
 
             }
@@ -241,8 +237,14 @@ namespace SummerSchool
 
             for (int i = 0; i < students.Length; i++)
             {
+                if (students[i] != null)
+                    {
+                    Console.WriteLine(students[i] + cost[i]);
 
-                Console.WriteLine(students[i]);
+                }
+
+                
+
 
 
 
