@@ -129,25 +129,10 @@ namespace SummerSchool
 
                 string tempName = name.ToLower();
 
-                if (tempName == "longbottom")
-                {
-
-                    if (TotalEnrolled() < 10)
-                    {
-                        Console.WriteLine("free of charge");
-                        fee = 0;
-                    }
-                    else
-                    {
-                        Console.WriteLine(fee);
-
-                    }
+               
 
 
-                }
-
-
-                if (tempName =="riddle")
+                if (tempName == "riddle")
                 {
 
                     Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
@@ -155,7 +140,7 @@ namespace SummerSchool
                 }
 
 
-                if (tempName =="tom")
+                if (tempName == "tom")
                 {
 
                     Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
@@ -175,20 +160,35 @@ namespace SummerSchool
                     Console.ReadKey();
                     Console.Clear();
                     return;
-                    
-                }
-                
 
-                if (tempName =="potter")
+                }
+
+
+                if (tempName == "potter")
                 {
-                    Console.WriteLine(fee / 2);
-                    fee = fee / 2;
                    
+                    fee = fee / 2;
+
                 }
 
-               
+                if (tempName == "longbottom")
+                {
 
-              
+                    if (TotalEnrolled() < 10)
+                    {
+                        Console.WriteLine("free of charge");
+                        fee = 0;
+                    }
+                    else
+                    {
+                        Console.WriteLine(fee);
+
+                    }
+
+
+                }
+
+
 
                 cost[spot] = fee;
 
@@ -238,17 +238,13 @@ namespace SummerSchool
             for (int i = 0; i < students.Length; i++)
             {
                 if (students[i] != null)
-                    {
-                    Console.WriteLine(students[i] + cost[i]);
-
+                {
+                    Console.WriteLine(students[i] + " (£ " + cost[i] + ")");
                 }
 
-                
-
-
-
-
             }
+
+            Console.WriteLine("Total:" + cost);
 
             Console.ReadKey();
             Console.Clear();
