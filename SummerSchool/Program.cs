@@ -30,8 +30,6 @@ namespace SummerSchool
 
         {
 
-
-
             while (true)
             {
                 Console.WriteLine("Main Menu");
@@ -41,70 +39,51 @@ namespace SummerSchool
                 Console.WriteLine("3. Print list of enrolled students");
                 Console.WriteLine("4. Exit");
 
-
-
                 string responseAsText = Console.ReadLine();
                 int response;
                 response = Convert.ToInt32(responseAsText);
 
 
                 if (response == 1)
-                //while (response == 1)
                 {
-                   
                     {
+
                         EnrollStudent();
 
-                       
-
                     }
-                    
                 }
 
 
                 else if (response == 2)
                 {
 
-                    Console.WriteLine("Unenroll Student");
-
-                    for (int i = 0; i < students.Length; i++)
-                    {
-                        Console.WriteLine(students[i]);
-
-                    }
-
-                    Console.Write("Please enter students number: ");
-                    string number = Console.ReadLine();
-
-                   
-                    Console.WriteLine(number + " is now unenrolled");
-                    Console.ReadKey();
-                    Console.Clear();
+                    UnenrollStudent();
 
                 }
+
 
                 else if (response == 3)
                 {
 
-                    for (int i = 0; i < students.Length; i++)
-                    {
-                        Console.WriteLine(students[i]);
-                        
-                    }
+                    PrintStudents();
 
                 }
 
-                else if (response == 4)
 
+                else if (response == 4)
                 {
-                    Console.WriteLine("Goodbye");
-                    Console.ReadKey();
+
+                    Exit();
                     break;
 
                 }
+
+
                 else
                 {
+
                     Console.WriteLine("Please enter a number 1-4");
+
                 }
             }
         }
@@ -130,10 +109,50 @@ namespace SummerSchool
         static void UnenrollStudent()
         {
 
+
+            Console.WriteLine("Unenroll Student");
+
+            for (int i = 0; i < students.Length; i++)
+            {
+
+                Console.WriteLine("{0}  {1}" , i + 1,  students[i]);
+
+            }
+
+            Console.Write("Please enter students number: ");
+            string answer = Console.ReadLine();
+            int number = Convert.ToInt32(answer);
+            Console.WriteLine(students[number - 1] + " is now unenrolled");
+            students[number - 1] = null;
+
+            
+
+            
+
+            Console.ReadKey();
+            Console.Clear();
+
+
+
         }
 
         static void PrintStudents()
         {
+
+            for (int i = 0; i < students.Length; i++)
+            {
+               
+                Console.WriteLine(students[i]);
+
+            }
+
+        }
+        static void Exit()
+        {
+
+            Console.WriteLine("Goodbye");
+            Console.ReadKey();
+
 
         }
 
