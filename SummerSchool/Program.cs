@@ -134,6 +134,30 @@ namespace SummerSchool
                 students[spot] = name;
                 int fee = 200;
 
+                string tempName = name.ToLower();
+
+                if (name.Contains("riddle"))
+                {
+
+                    Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
+
+                }
+
+
+                if (name.Contains("tom"))
+                {
+
+                    Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
+
+                }
+
+                if (name.Contains("voldemort"))
+                {
+
+                    Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
+
+                }
+
                 if (name.Contains("malfoy"))
                 {
                     Console.WriteLine("Do Not Enroll");
@@ -150,6 +174,8 @@ namespace SummerSchool
                     fee = fee / 2;
                    
                 }
+
+               
 
                 if (name.Contains("longbottom"))
                 {
