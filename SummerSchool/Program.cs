@@ -9,7 +9,16 @@ namespace SummerSchool
     class Program
     {
         static string[] students = new string[15];
-        
+
+        static int[] cost = new int[15];
+
+
+
+
+
+
+
+
         static int NextAvailibleSpace()
         {
             for (int i = 0; i < students.Length; i++)
@@ -31,7 +40,7 @@ namespace SummerSchool
             {
                 if (students[i] != null)
                 {
-                     numberOfStudents++;
+                    numberOfStudents++;
                 }
 
             }
@@ -39,7 +48,6 @@ namespace SummerSchool
 
 
         }
-
 
         static void Main(string[] args)
         {
@@ -55,13 +63,13 @@ namespace SummerSchool
 
                 }
 
-                if (TotalEnrolled() >0)
+                if (TotalEnrolled() > 0)
                 {
 
                     Console.WriteLine("2. Unenroll a student");
 
                 }
-                
+
                 Console.WriteLine("3. Print list of enrolled students");
                 Console.WriteLine("4. Exit");
 
@@ -72,8 +80,8 @@ namespace SummerSchool
 
                 if (response == 1)
                 {
-                   
-                        EnrollStudent();
+
+                    EnrollStudent();
 
                 }
 
@@ -112,7 +120,6 @@ namespace SummerSchool
             }
         }
 
-
         static void EnrollStudent()
         {
 
@@ -125,9 +132,46 @@ namespace SummerSchool
                 //put student in next available spot in name
                 int spot = NextAvailibleSpace();
                 students[spot] = name;
+                int fee = 200;
+
+                if (name.Contains("malfoy"))
+                {
+                    Console.WriteLine("Do Not Enroll");
+                    Console.ReadKey();
+                    Console.Clear();
+                    return;
+                    
+                }
+                
+
+                if (name.Contains("potter"))
+                {
+                    Console.WriteLine(fee / 2);
+                    fee = fee / 2;
+                   
+                }
+
+                if (name.Contains("longbottom"))
+                {
+
+                    if (TotalEnrolled() < 10)
+                    {
+                        Console.WriteLine("free of charge");
+                        fee = 0;
+                    }
+                    else
+                    {
+                        Console.WriteLine(fee);
+
+                    }
+                
+                
+                }
+
+                cost[spot] = fee;
 
                 Console.WriteLine(name + " is now enrolled");
-                Console.WriteLine(name + " needs to pay ___");
+                Console.WriteLine(name + " needs to pay {0}", fee);
                 Console.ReadKey();
 
             }
@@ -171,10 +215,10 @@ namespace SummerSchool
 
             for (int i = 0; i < students.Length; i++)
             {
-                
+
                 Console.WriteLine(students[i]);
-                
-                
+
+
 
             }
 
@@ -182,7 +226,6 @@ namespace SummerSchool
             Console.Clear();
 
         }
-        
 
         static void Exit()
         {
