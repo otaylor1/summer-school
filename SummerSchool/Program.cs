@@ -122,7 +122,12 @@ namespace SummerSchool
                 Console.WriteLine("Enroll Student");
                 Console.Write("Please enter students name: ");
                 string name = Console.ReadLine();
-               
+
+                //allows to look at just first initial of both first and last name
+                var firstLastName = name.Split(' ');
+                string firstName = firstLastName[0];
+                string lastName = firstLastName[firstLastName.Length - 1];
+
                 //put student in next available spot in name
                 int spot = NextAvailibleSpace();
                 students[spot] = name;
@@ -130,10 +135,10 @@ namespace SummerSchool
                 //should be double because it is money
                 Double fee = 200;
 
-                string tempName = name.ToLower();
+                string tempName = lastName.ToLower();
               
 
-                if (tempName.Contains("riddle")  )
+                if (tempName == "riddle" )
                 {
 
                     Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
@@ -141,41 +146,21 @@ namespace SummerSchool
                 }
 
 
-                if (tempName.Contains("tom") )
+                if (tempName == "tom" )
                 {
-                    //longbottom needs to be within tom otherwise it gets a red alert
-                    if (tempName.Contains("longbottom"))
-                    {
-
-                        if (TotalEnrolled() < 10)
-                        {
-
-                            Console.WriteLine("free of charge");
-                            fee = 0;
-
-                        }
-
-                        else
-                        {
-
-                            Console.WriteLine(fee);
-
-                        }
-                    }
-
-                    else
+                    
                         Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
 
                 }
 
-                if (tempName.Contains("voldemort") )
+                if (tempName == "voldemort" )
                 {
 
                     Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
 
                 }
 
-                if (tempName.Contains("malfoy")  )
+                if (tempName == ("malfoy")  )
                 {
                     Console.WriteLine("Do Not Enroll");
                     Console.ReadKey();
@@ -185,19 +170,34 @@ namespace SummerSchool
                 }
 
 
-                if (tempName.Contains("potter")  )
+                if (tempName == "potter" )
                 {
                    
                     fee = fee / 2;
 
                 }
 
-             //allows to look at just first initial of both first and last name
-                var firstLastName = name.Split(' ');
-                string firstName = firstLastName[0];
-                string lastName = firstLastName[1];
 
-                if (firstName.First() == lastName.First())
+                if (tempName == "longbottom")
+                {
+
+                    if (TotalEnrolled() <= 10)
+                    {
+
+                        Console.WriteLine("free of charge");
+                        fee = 0;
+
+                    }
+
+                    else
+                    {
+
+                        Console.WriteLine(fee);
+                    }
+
+                }
+
+                    if (firstName.ToLower()[0] == lastName.ToLower()[0])
                 {
                     fee = fee * .90;
                 }
