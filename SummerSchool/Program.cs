@@ -171,6 +171,15 @@ namespace SummerSchool
 
                 }
 
+
+
+               // if (tempName.)
+
+
+
+
+
+
                 if (tempName == "longbottom")
                 {
 
@@ -240,12 +249,12 @@ namespace SummerSchool
                 if (students[i] != null)
                 {
                     Console.WriteLine(students[i] + " (£ " + cost[i] + ")");
+                    
                 }
-
+                
             }
-
-            Console.WriteLine("Total:" + cost);
-
+            
+            Console.WriteLine("Total: £ " + cost.Sum());          
             Console.ReadKey();
             Console.Clear();
 
