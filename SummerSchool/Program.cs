@@ -122,11 +122,12 @@ namespace SummerSchool
                 Console.WriteLine("Enroll Student");
                 Console.Write("Please enter students name: ");
                 string name = Console.ReadLine();
-               // string nameTemp = name.T();
-
+               
                 //put student in next available spot in name
                 int spot = NextAvailibleSpace();
                 students[spot] = name;
+
+                //should be double because it is money
                 Double fee = 200;
 
                 string tempName = name.ToLower();
@@ -142,7 +143,7 @@ namespace SummerSchool
 
                 if (tempName.Contains("tom") )
                 {
-
+                    //longbottom needs to be within tom otherwise it gets a red alert
                     if (tempName.Contains("longbottom"))
                     {
 
@@ -191,7 +192,7 @@ namespace SummerSchool
 
                 }
 
-             
+             //allows to look at just first initial of both first and last name
                 var firstLastName = name.Split(' ');
                 string firstName = firstLastName[0];
                 string lastName = firstLastName[1];
@@ -201,23 +202,6 @@ namespace SummerSchool
                     fee = fee * .90;
                 }
                 
-
-                if (tempName.Contains("longbottom"))
-                {
-
-                    if (TotalEnrolled() < 10)
-                    {
-                        Console.WriteLine("free of charge");
-                        fee = 0;
-                    }
-                    else
-                    {
-                        Console.WriteLine(fee);
-
-                    }
-
-                }
-
 
                 cost[spot] = fee;
 
