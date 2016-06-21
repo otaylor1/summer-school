@@ -242,12 +242,14 @@ namespace SummerSchool
 
         static void PrintStudents()
         {
+            //tempCost will allow for the total enrollment fee to update everytime there is a enrollment or unenrollment change
             double tempCost = 0;
             for (int i = 0; i < students.Length; i++)
             {
                 if (students[i] != null)
                 {
                     Console.WriteLine(students[i] + " (£ " + cost[i] + ")");
+
                     tempCost = tempCost + cost[i];
                 }
                 
