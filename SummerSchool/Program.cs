@@ -222,8 +222,10 @@ namespace SummerSchool
 
             for (int i = 0; i < students.Length; i++)
             {
-
-                Console.WriteLine("{0}  {1} ", i + 1, students[i]);
+                if (students[i] != null)
+                {
+                    Console.WriteLine("{0}  {1} ", i + 1, students[i]);
+                }
 
             }
 
@@ -240,18 +242,18 @@ namespace SummerSchool
 
         static void PrintStudents()
         {
-
+            double tempCost = 0;
             for (int i = 0; i < students.Length; i++)
             {
                 if (students[i] != null)
                 {
                     Console.WriteLine(students[i] + " (£ " + cost[i] + ")");
-                    
+                    tempCost = tempCost + cost[i];
                 }
                 
             }
             
-            Console.WriteLine("Total: £ " + cost.Sum());          
+            Console.WriteLine("\nTotal: £ " + tempCost);          
             Console.ReadKey();
             Console.Clear();
 
