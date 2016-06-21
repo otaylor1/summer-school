@@ -136,9 +136,9 @@ namespace SummerSchool
                 Double fee = 200;
 
                 string tempName = lastName.ToLower();
-              
 
-                if (tempName == "riddle" )
+
+                if (tempName == "riddle")
                 {
 
                     Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
@@ -146,21 +146,21 @@ namespace SummerSchool
                 }
 
 
-                if (tempName == "tom" )
-                {
-                    
-                        Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
-
-                }
-
-                if (tempName == "voldemort" )
+                if (tempName == "tom")
                 {
 
                     Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
 
                 }
 
-                if (tempName == ("malfoy")  )
+                if (tempName == "voldemort")
+                {
+
+                    Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
+
+                }
+
+                if (tempName == ("malfoy"))
                 {
                     Console.WriteLine("Do Not Enroll");
                     Console.ReadKey();
@@ -170,9 +170,9 @@ namespace SummerSchool
                 }
 
 
-                if (tempName == "potter" )
+                if (tempName == "potter")
                 {
-                   
+
                     fee = fee / 2;
 
                 }
@@ -197,11 +197,11 @@ namespace SummerSchool
 
                 }
 
-                    if (firstName.ToLower()[0] == lastName.ToLower()[0])
+                if (firstName.ToLower()[0] == lastName.ToLower()[0])
                 {
                     fee = fee * .90;
                 }
-                
+
 
                 cost[spot] = fee;
 
@@ -252,10 +252,10 @@ namespace SummerSchool
 
                     tempCost = tempCost + cost[i];
                 }
-                
+
             }
-            
-            Console.WriteLine("\nTotal: £ " + tempCost);          
+
+            Console.WriteLine("\nTotal: £ " + tempCost);
             Console.ReadKey();
             Console.Clear();
 
