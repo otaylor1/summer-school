@@ -37,8 +37,8 @@ namespace SummerSchool
                 }
 
             }
-            return numberOfStudents;
 
+            return numberOfStudents;
 
         }
 
@@ -132,9 +132,6 @@ namespace SummerSchool
                 string tempName = name.ToLower();
               
 
-
-
-
                 if (tempName.Contains("riddle")  )
                 {
 
@@ -145,16 +142,21 @@ namespace SummerSchool
 
                 if (tempName.Contains("tom") )
                 {
+
                     if (tempName.Contains("longbottom"))
                     {
 
                         if (TotalEnrolled() < 10)
                         {
+
                             Console.WriteLine("free of charge");
                             fee = 0;
+
                         }
+
                         else
                         {
+
                             Console.WriteLine(fee);
 
                         }
@@ -189,9 +191,7 @@ namespace SummerSchool
 
                 }
 
-
-
-              //cant figure out how to use this without ruining the rest of my program  
+             
                 var firstLastName = name.Split(' ');
                 string firstName = firstLastName[0];
                 string lastName = firstLastName[1];
@@ -201,10 +201,6 @@ namespace SummerSchool
                     fee = fee * .90;
                 }
                 
-
-
-
-
 
                 if (tempName.Contains("longbottom"))
                 {
@@ -220,9 +216,7 @@ namespace SummerSchool
 
                     }
 
-
                 }
-
 
 
                 cost[spot] = fee;
@@ -232,14 +226,13 @@ namespace SummerSchool
                 Console.ReadKey();
 
             }
-            Console.Clear();
 
+            Console.Clear();
 
         }
 
         static void UnenrollStudent()
         {
-
 
             Console.WriteLine("Unenroll Student");
 
@@ -256,14 +249,8 @@ namespace SummerSchool
             Console.WriteLine(students[number - 1] + " is now unenrolled");
             students[number - 1] = null;
 
-
-
-
-
             Console.ReadKey();
             Console.Clear();
-
-
 
         }
 
