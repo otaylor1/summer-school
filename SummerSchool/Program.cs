@@ -10,7 +10,7 @@ namespace SummerSchool
     {
         static string[] students = new string[15];
 
-        static int[] cost = new int[15];
+        static Double[] cost = new Double[15];
 
         static int NextAvailibleSpace()
         {
@@ -116,23 +116,26 @@ namespace SummerSchool
         static void EnrollStudent()
         {
 
+
             if (TotalEnrolled() < 15)
             {
                 Console.WriteLine("Enroll Student");
                 Console.Write("Please enter students name: ");
                 string name = Console.ReadLine();
+               // string nameTemp = name.T();
 
                 //put student in next available spot in name
                 int spot = NextAvailibleSpace();
                 students[spot] = name;
-                int fee = 200;
+                Double fee = 200;
 
                 string tempName = name.ToLower();
+              
 
-               
 
 
-                if (tempName == "riddle")
+
+                if (tempName.Contains("riddle")  )
                 {
 
                     Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
@@ -140,21 +143,36 @@ namespace SummerSchool
                 }
 
 
-                if (tempName == "tom")
+                if (tempName.Contains("tom") )
+                {
+                    if (tempName.Contains("longbottom"))
+                    {
+
+                        if (TotalEnrolled() < 10)
+                        {
+                            Console.WriteLine("free of charge");
+                            fee = 0;
+                        }
+                        else
+                        {
+                            Console.WriteLine(fee);
+
+                        }
+                    }
+
+                    else
+                        Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
+
+                }
+
+                if (tempName.Contains("voldemort") )
                 {
 
                     Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
 
                 }
 
-                if (tempName == "voldemort")
-                {
-
-                    Console.WriteLine("RED ALERT!!! HE WHO MUST NOT BE NAMED!!!");
-
-                }
-
-                if (tempName == "malfoy")
+                if (tempName.Contains("malfoy")  )
                 {
                     Console.WriteLine("Do Not Enroll");
                     Console.ReadKey();
@@ -164,7 +182,7 @@ namespace SummerSchool
                 }
 
 
-                if (tempName == "potter")
+                if (tempName.Contains("potter")  )
                 {
                    
                     fee = fee / 2;
@@ -173,14 +191,22 @@ namespace SummerSchool
 
 
 
-               // if (tempName.)
+              //cant figure out how to use this without ruining the rest of my program  
+                var firstLastName = name.Split(' ');
+                string firstName = firstLastName[0];
+                string lastName = firstLastName[1];
+
+                if (firstName.First() == lastName.First())
+                {
+                    fee = fee * .90;
+                }
+                
 
 
 
 
 
-
-                if (tempName == "longbottom")
+                if (tempName.Contains("longbottom"))
                 {
 
                     if (TotalEnrolled() < 10)
